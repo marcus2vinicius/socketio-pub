@@ -2,26 +2,24 @@
 <head>    
     <script type="module">
         import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-        //const socket = io("http://localhost:3000");        
-        const socket = io("https://vinymd-socketio-pub.onrender.com");        
+        const socket = io("http://localhost:3000");
+        //const socket = io("https://vinymd-socketio-pub.onrender.com");
 
-        // Agora você pode lidar com eventos relacionados à conexão, como "connect" e "disconnect":
         socket.on("connect", () => {
-            console.log("Conectado ao servidor Socket.io");
+            console.log("Connected Socket.io");
             start()
         });
 
         socket.on("disconnect", () => {
-            console.log("Desconectado do servidor Socket.io");
+            console.log("Disconnect Socket.io");
         });
 
         function start(){
-            socket.emit("subscribe", 'sdpOffer');
-            socket.emit("broadcast", {canal: 'sdpOffer', mensagem: 'Mensagem do HTML2 para sdpOffer'});
+            socket.emit("broadcast", {channel: 'topic1', message: 'Message sent from html2'});
         }
 </script>
 </head>
 <body>
-
+<h1>Send Message to channel: topic1</h1>
 </body>
 </html>

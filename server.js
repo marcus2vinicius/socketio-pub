@@ -22,9 +22,9 @@ io.on("connection", (socket) => {
     console.log('disconect')
   })
 
-  socket.on("broadcast", ({ canal, mensagem }) => {  
-    console.log('broadcast: ', canal, mensagem)  
-    io.to(canal).emit(canal, mensagem);
+  socket.on("broadcast", ({ channel, message }) => {
+    console.log('broadcast: ', channel, message)
+    io.to(channel).emit(channel, message);
   });
 
 });
