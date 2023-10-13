@@ -2,8 +2,8 @@
 <head>    
     <script type="module">
         import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-        const socket = io("http://localhost:3000");
-        //const socket = io("https://vinymd-socketio-pub.onrender.com");
+        //const socket = io("http://localhost:3000");
+        const socket = io("https://vinymd-socketio-pub.onrender.com");
 
         socket.on("connect", () => {
             console.log("Connected Socket.io");

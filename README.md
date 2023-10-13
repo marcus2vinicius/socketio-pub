@@ -8,16 +8,24 @@ Available on :
 
 ## Running
 
+### Local
 ```bash
 npm install
 node server.js
 ```
 
+### docker
+```bash
+$ docker-compose up
+```
 Open [localhost:3000](http://localhost:3000)
 
 ## Usage
 ### Client Receiving msgs
 ```javascript
+        import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+        const socket = io("https://vinymd-socketio-pub.onrender.com");
+
         socket.on("connect", () => {
             console.log("Connected Socket.io");
             start()
