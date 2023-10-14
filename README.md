@@ -1,5 +1,5 @@
 # Websocket - Pub/Sub
-## implementado com node socket.io para publish/subscribe
+## Socket.io nodejs for Publish/Subscribe
 
 Available on :
 - dockerhub:  [hub.docker.com/r/vinymd/socketio-pub](https://hub.docker.com/r/vinymd/socketio-pub)
@@ -23,27 +23,27 @@ Open [localhost:3000](http://localhost:3000)
 ## Usage
 ### Client Receiving msgs
 ```javascript
-        import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-        const socket = io("https://vinymd-socketio-pub.onrender.com");
+    import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+    const socket = io("https://vinymd-socketio-pub.onrender.com");
 
-        socket.on("connect", () => {
-            console.log("Connected Socket.io");
-            start()
-        });
+    socket.on("connect", () => {
+        console.log("Connected Socket.io");
+        start()
+    });
 
-        socket.on("disconnect", () => {
-            console.log("Disconnect Socket.io");
-        });
+    socket.on("disconnect", () => {
+        console.log("Disconnect Socket.io");
+    });
 
-        function start(){
-            socket.emit("subscribe", 'topic1');
+    function start(){
+        socket.emit("subscribe", 'topic1');
 
-            socket.on('topic1', (msg) => {
-               console.log(`Message received from topic1: ${msg}`);
-            })
-        }
+        socket.on('topic1', (msg) => {
+           console.log(`Message received from topic1: ${msg}`);
+        })
+    }
 ```
 ### Client Sending msgs
 ```javascript
-       socket.emit("broadcast", {channel: 'topic1', message: 'Message sent from html2'});
+   socket.emit("broadcast", {channel: 'topic1', message: 'Message sent from html2'});
 ```
